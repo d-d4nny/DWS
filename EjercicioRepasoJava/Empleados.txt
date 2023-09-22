@@ -1,2 +1,2 @@
-Empleado ID: 1, Nombre: daniel, Apellidos: glez manz, DNI: 2947252m, Fecha de Nacimiento: 201004, Titulación: fp medio, Número de Seguridad Social: 42342332, Número de Cuenta Corriente: 5423432
-Empleado ID: 2, Nombre: drqw, Apellidos: ewqqe, DNI: 24342314, Fecha de Nacimiento: 43243, Titulación: 45325, Número de Seguridad Social: 5325235, Número de Cuenta Corriente: 5235235
+Empleado ID: 1, Nombre: daniel , Apellidos: fp1, DNI: 294724742m, Fecha de Nacimiento: 201004, Titulación: fp2, Número de Seguridad Social: 34923432, Número de Cuenta Corriente: 2432423
+Empleado ID: 2, Nombre: pepe, Apellidos: rodigriga, DNI: 3251235j, Fecha de Nacimiento: 130106, Titulación: bach, Número de Seguridad Social: 2344234, Número de Cuenta Corriente: 767568

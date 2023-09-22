@@ -15,34 +15,64 @@ public class ImplEmpleado implements IntzEmpleado{
 	private int contadorIdEmpleado = 0;
 
 	public void exportarFichero(List<Empleados> bdMain) {
-	    
-		
+	    	
 		FileWriter fichero = null;
-        PrintWriter pw = null;
-        try
-        {
+        PrintWriter pw = null;  
+        Scanner scan = new Scanner(System.in);
+
+        try {
             fichero = new FileWriter("./Empleados.txt");
             pw = new PrintWriter(fichero);
 
-            
-            if (bdMain.isEmpty()) {
-    	        System.out.println("No hay empleados registrados.");
-    	    } else {
-    	        System.out.println("Lista de empleados:");
-    	        for (Empleados empleado : bdMain) {
-    	        	pw.println(empleado);
-    	        }
-    	    }
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Listar todos los registros.");
+            System.out.println("2. Imprimir un registro específico por número de empleado.");
+            int opcion = scan.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    if (bdMain.isEmpty()) {
+                        System.out.println("No hay empleados registrados.");
+                    } else {
+                        System.out.println("Lista de empleados:");
+                        for (Empleados empleado : bdMain) {
+                            pw.println(empleado);
+                        }
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("Introduzca el número de empleado:");
+                    int numeroEmpleado = scan.nextInt();
+                    boolean encontrado = false;
+
+                    for (Empleados empleado : bdMain) {
+                        if (empleado.getNumEmpleado() == numeroEmpleado) {
+                            pw.println(empleado);
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (!encontrado) {
+                        System.out.println("No se encontró un empleado con ese número.");
+                    }
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+                    break;
+            }
 
         } catch (IOException ioe) {
-        	System.out.print("[ERROR] - FICHERO NO ENCONTRARO: " + fichero + "\n" + ioe);
+            System.out.print("[ERROR] - FICHERO NO ENCONTRADO: " + fichero + "\n" + ioe);
         } finally {
-           try {
-        	   if (null != fichero)
-        		   fichero.close();
-           }catch (IOException ioe2){ 
-	        	 System.out.print("[ERROR] - ERROR AL CERRAR FICHERO: " + fichero + "\n" + ioe2);
-	       }
+            try {
+                if (fichero != null)
+                    fichero.close();
+            } catch (IOException ioe2) {
+                System.out.print("[ERROR] - ERROR AL CERRAR FICHERO: " + fichero + "\n" + ioe2);
+            }
         }
 	}
 	
